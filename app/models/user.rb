@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
 
   reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
+  has_many :messages
 end
